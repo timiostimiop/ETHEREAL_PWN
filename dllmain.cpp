@@ -14,6 +14,8 @@ pAllocConsole oAllocConsole = NULL;
 DWORD64 hMod = NULL;
 bool cancontinue = false;
 
+#define DUMP_BYTES
+
 void pMemcpy(void* dest, void* src, size_t size)
 {
     DWORD oProtect = NULL;
@@ -54,6 +56,7 @@ bool WINAPI hkAllocConsole()
 }
 
 
+
 DWORD WINAPI px()
 {
     
@@ -69,6 +72,25 @@ DWORD WINAPI px()
 
   
     printf("waiting for ethereal...\n");
+#ifdef DUMP_BYTES
+    HMODULE ntDll = GetModuleHandleA("ntdll.dll");
+    if (ntDll != 0)
+    {
+        BYTE oBytes[20];
+        auto vpAddy = (DWORD64)GetProcAddress(ntDll, "NtProtectVirtualMemory");
+        ReadProcessMemory(GetCurrentProcess(), (void*)vpAddy, &oBytes, sizeof(oBytes), NULL);
+
+        printf("your restoreVirtualProtect:\n\n");
+
+
+        for (int i = 0; i < sizeof(oBytes); i++)
+        {
+            printf("0x%x\n", oBytes[i]);
+        }
+
+    }
+#endif
+
     HMODULE kernelnigga = GetModuleHandleA("kernelbase.dll");
 
      auto neger_loch = (DWORD64)GetProcAddress(kernelnigga, "AllocConsole");
@@ -83,10 +105,11 @@ DWORD WINAPI px()
      while (addr1 == 0)
      {
          addr1 = (DWORD64)GetModuleHandleA("ethereal.dll");
-         hMod = (DWORD64)GetModuleHandleA("ethereal.dll") ;
+       
          Sleep(1);
      }
 
+     hMod = (DWORD64)GetModuleHandleA("ethereal.dll");
      printf("waiting for continue bool...\n");
 
      while (!canpatch)
@@ -101,13 +124,8 @@ DWORD WINAPI px()
 
          DWORD64 Patch1 = (DWORD64)hMod + 0x4A980;
          HMODULE ntDll = GetModuleHandleA("ntdll.dll");
-         auto memcpyAddy = (DWORD64)GetProcAddress(ntDll, "RtlCopyMemory");
 
-         BYTE p[1];
-         ReadProcessMemory(GetCurrentProcess(), (LPVOID)memcpyAddy, &p[1], sizeof(p), NULL);
-         if (p[1] == 0x48)
-         {
-
+     
              DWORD oProtect = NULL;
 
             pMemcpy((void*)Patch1, patch1, sizeof(patch1));
@@ -115,7 +133,6 @@ DWORD WINAPI px()
              Sleep(5000); 
              printf("patched. greetz - \ntimiostimio#0629\n"); // go change this to paste ur own p100 crack :)
          
-         }
        
      }
 
