@@ -12,3 +12,12 @@ On W11 you may need to edit VirtualProtect og bytes.
 
 
 ![Alt text](/pic/NEGERSS.png?raw=true "Screenshotboi")
+
+
+Installing Minhook via nuget:
+
+
+
+
+![Alt text](/pic/PIC1.png?raw=true "Screenshotboi2")
+![Alt text](/pic/pic2.png?raw=true "Screenshotboi3")
