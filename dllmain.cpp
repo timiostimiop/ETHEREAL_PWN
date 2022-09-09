@@ -42,7 +42,7 @@ bool WINAPI hkAllocConsole()
         0x75, 0x03, 0x0F, 0x05 
         };
 
-
+        //A
         if (WriteProcessMemory(GetCurrentProcess(), (LPVOID)vpAddy, &restoreVirtualProtect, sizeof(restoreVirtualProtect), NULL))
             printf("Hooks restored.\n");
         else printf("failed to restore hooks\n");
