@@ -9,3 +9,4 @@ The code is trash and could be improved alot but in the end I don't care - deal 
 
 
 
+![Alt text](/pic/NEGERSS.png?raw=true "Screenshotboi")
