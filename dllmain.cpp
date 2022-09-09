@@ -56,7 +56,6 @@ bool WINAPI hkAllocConsole()
 }
 
 
-
 DWORD WINAPI px()
 {
     
