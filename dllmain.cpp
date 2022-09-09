@@ -123,11 +123,7 @@ DWORD WINAPI px()
          BYTE patch1[5] = { 0xB0, 0x01, 0xC3, 0x90, 0x90 };
 
          DWORD64 Patch1 = (DWORD64)hMod + 0x4A980;
-         HMODULE ntDll = GetModuleHandleA("ntdll.dll");
-
-     
-             DWORD oProtect = NULL;
-
+          
             pMemcpy((void*)Patch1, patch1, sizeof(patch1));
          
              Sleep(5000); 
