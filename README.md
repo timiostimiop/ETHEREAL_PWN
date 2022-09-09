@@ -11,7 +11,7 @@ The code is trash and could be improved alot but in the end I don't care - deal 
 define DUMP_BYTES to print out first 20 bytes of NtProtectVirtualMemory and adjust it ( restoreVirtualProtect ).
 
 On W11 you may need to edit VirtualProtect og bytes.
-
+Unzip Ethereal.rar to C:\
 
 
 ![Alt text](/pic/NEGERSS.png?raw=true "Screenshotboi")
