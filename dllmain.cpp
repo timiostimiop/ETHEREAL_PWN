@@ -7,20 +7,8 @@
 
 #include <MinHook.h>
 
-
-using fnTexthook = void(__fastcall*)(void*, void*, char*);
-fnTexthook oTexthook = nullptr;
-
-
 typedef bool (WINAPI* pAllocConsole)(void);
 pAllocConsole oAllocConsole = NULL;
-
-typedef int (__stdcall* pSkipMacro)(void);
-pSkipMacro oSkipMacro = NULL;
-
-typedef void (WINAPI* pRtlCopyMemory)(void*, const void*, size_t);
-pRtlCopyMemory oRtlCopyMemory = NULL;
-
 
 
 DWORD64 hMod = NULL;
