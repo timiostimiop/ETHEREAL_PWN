@@ -15,6 +15,7 @@ Unzip Ethereal.rar to C:\
 
 
 ![Alt text](/pic/NEGERSS.png?raw=true "Screenshotboi")
+![Alt text](/pic/LATEST.png?raw=true "Screenshotboi")
 
 
 Installing Minhook via nuget:
