@@ -103,12 +103,12 @@ DWORD WINAPI px()
 
      while (addr1 == 0)
      {
-         addr1 = (DWORD64)GetModuleHandleA("ethereal.dll");
+         addr1 = (DWORD64)GetModuleHandleA("newethereal.dll");
        
          Sleep(1);
      }
 
-     hMod = (DWORD64)GetModuleHandleA("ethereal.dll");
+     hMod = (DWORD64)GetModuleHandleA("newethereal.dll");
      printf("waiting for continue bool...\n");
 
      while (!canpatch)
@@ -121,7 +121,7 @@ DWORD WINAPI px()
      {
          BYTE patch1[5] = { 0xB0, 0x01, 0xC3, 0x90, 0x90 };
 
-         DWORD64 Patch1 = (DWORD64)hMod + 0x4A980;
+         DWORD64 Patch1 = (DWORD64)hMod + 0x4A9E0;
           
             pMemcpy((void*)Patch1, patch1, sizeof(patch1));
          
