@@ -2,7 +2,8 @@
 
 Simple ethereal hax updated.
 Ethereal made heavy use of VMP's virtualization & mutation but in the end the developer failed to implement it properly.
-latest updated the developer decided to add some auth checks, yet unvirtualized again.
+
+latest update the developer decided to add some auth checks, yet unvirtualized again.
 
 Add minhook from nuget , Compile in Release x64 , Inject that dll & afterwards inject ethereal.dll.
 
