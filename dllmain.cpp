@@ -103,12 +103,12 @@ DWORD WINAPI px()
 
      while (addr1 == 0)
      {
-         addr1 = (DWORD64)GetModuleHandleA("newethereal.dll");
+         addr1 = (DWORD64)GetModuleHandleA("ethereal_latest.dll");
        
          Sleep(1);
      }
 
-     hMod = (DWORD64)GetModuleHandleA("newethereal.dll");
+     hMod = (DWORD64)GetModuleHandleA("ethereal_latest.dll");
      printf("waiting for continue bool...\n");
 
      while (!canpatch)
@@ -120,11 +120,16 @@ DWORD WINAPI px()
      if (addr1)
      {
          BYTE patch1[5] = { 0xB0, 0x01, 0xC3, 0x90, 0x90 };
+         int ohno = 1;
 
-         DWORD64 Patch1 = (DWORD64)hMod + 0x4A9E0;
-          
+         DWORD64 Patch1 = (DWORD64)hMod + 0x4BFA0;
+         DWORD64 Patch2 = (DWORD64)hMod + 0x3FE650;
+         DWORD64 Patch3 = (DWORD64)hMod + 0x3FE653;
+
             pMemcpy((void*)Patch1, patch1, sizeof(patch1));
-         
+            pMemcpy((void*)Patch2, &ohno, sizeof(ohno));
+            pMemcpy((void*)Patch3, &ohno, sizeof(ohno));
+
              Sleep(5000); 
              printf("patched. greetz - \ntimiostimio#0629\n"); // go change this to paste ur own p100 crack :)
          
